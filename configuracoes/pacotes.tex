@@ -1,0 +1,57 @@
+% configuracoes/pacotes.tex
+
+% --- Fontes ---
+% Usa fontspec para definir as fontes exigidas (Arial Narrow e Arial)
+\usepackage{fontspec}
+
+% Tenta carregar a Arial Narrow. Caso não encontre no sistema, usa Arial.
+\IfFontExistsTF{Arial Narrow}{
+    \setmainfont{Arial Narrow}[
+        BoldFont={Arial Narrow Bold},
+        ItalicFont={Arial Narrow Italic},
+        BoldItalicFont={Arial Narrow Bold Italic}
+    ]
+}{
+    \setmainfont{Arial}
+}
+
+% Define comandos específicos para fontes do cabeçalho
+\newfontfamily\arialfont{Arial}
+\newfontfamily\bodonifont{Bodoni MT}
+\newfontfamily\calibrifont{Calibri}
+
+% --- Suporte a Idioma ---
+% Babel já é carregado pela classe abntex2
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{array}
+
+% --- Matemática ---
+\usepackage{amsmath,amssymb,amsfonts}
+
+\usepackage{csquotes}
+\usepackage[
+    style=abnt,
+    extrayear,
+    uniquename=init,
+    giveninits=true,
+    justify,
+    sccite
+]{biblatex}
+
+% Opcional: Adiciona o arquivo de bibliografia padrão
+\addbibresource{pos-textual/referencias.bib}
+
+% --- Links e Metadados ---
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    citecolor=black,
+    filecolor=black,
+    urlcolor=blue,
+    pdfcreator={LaTeX with abnTeX2}
+}
+
+% --- Microtipografia ---
+\usepackage{microtype}

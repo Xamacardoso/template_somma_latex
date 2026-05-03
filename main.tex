@@ -1,0 +1,53 @@
+% !TEX root = main.tex
+\documentclass{abntex-ifpi/somma} % Importa a classe customizada
+
+% --- Pacotes e Comandos ---
+\input{configuracoes/pacotes}
+\input{configuracoes/comandos}
+
+% --- Informações do Artigo ---
+\input{pre-textual/informacoes}
+
+\begin{document}
+\thispagestyle{somma_primeira} % Usa o estilo customizado para a primeira página
+
+% --- Elementos Pré-Textuais ---
+
+
+\begin{center}
+    % Título em Português
+    \vspace*{0.2cm}
+    \imprimirtitulo
+    \vspace{0.4cm}
+    
+    % Autores
+    \imprimirautor
+\end{center}
+
+\vspace{0.3cm}
+
+% Resumo e Abstract
+\input{pre-textual/resumo_abstract}
+
+\vspace{1cm}
+
+% --- Elementos Textuais ---
+\textual
+\pagestyle{fancy} % Garante que o cabeçalho das páginas internas seja aplicado
+
+% Capítulos
+\input{capitulos/1_introducao}
+\input{capitulos/2_metodologia}
+\input{capitulos/3_resultados_discussao}
+\input{capitulos/4_consideracoes_finais}
+
+% --- Elementos Pós-Textuais ---
+\postextual
+
+% Referências
+\printbibliography[title={REFERÊNCIAS}]
+
+% Apêndices e Anexos (Opcionais)
+% \input{pos-textual/apendices_anexos}
+
+\end{document}

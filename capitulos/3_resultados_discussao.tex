@@ -1,0 +1,50 @@
+% !TEX root = ../main.tex
+% capitulos/3_resultados_discussao.tex
+
+\section{RESULTADOS E DISCUSSÃO}
+
+\subsection{Apresentação de figuras, tabelas e equações}
+
+Figuras e Tabelas devem ser inseridas diretamente no corpo do texto, utilizando preferencialmente o mesmo padrão. Quando citadas no texto, escrever com a 1ª letra maiúscula e não abreviar.
+
+Exemplo: ``Na Figura \ref{fig:exemplo} é possível observar a evolução...''; ``... De acordo com a Tabela \ref{tab:exemplo} ...''
+
+As Equações quando citadas no texto virão com a 1ª letra maiúscula e o número entre parênteses, sem abreviação. Exemplo: ``Obtendo-se assim a Equação (\ref{eq:1}):''
+
+\begin{equation}
+    AB + CD \rightarrow AC + BD
+    \label{eq:1}
+\end{equation}
+
+\vspace{0.5cm}
+
+\begin{figure}[htb]
+    \centering
+    \caption{Mapa viário de exemplo.}
+    % Usando a imagem extraída, se houver
+    % \includegraphics[width=0.6\textwidth]{imagens/image2.jpg}
+    \fbox{\rule{0pt}{2in} \rule{0.6\textwidth}{0pt}} % Placeholder
+    \label{fig:exemplo}
+    
+    {\footnotesize Fonte: Elaborado pelos autores, 2026.}
+\end{figure}
+
+As Tabelas deverão ser enumeradas em algarismos arábicos, por ordem de aparição no texto e devem estar centralizadas.
+
+\begin{table}[htb]
+    \centering
+    \caption{Estudo da influência do tempo.}
+    \label{tab:exemplo}
+    \begin{tabular}{ccc}
+        \toprule
+        \textbf{Amostra} & \textbf{Concentração (moles/L)} & \textbf{Rendimento (\%)} \\
+        \midrule
+        1 & 0,02 & 45 \\
+        2 & 0,12 & 56 \\
+        3 & 0,30 & 70 \\
+        4 & 0,43 & 87 \\
+        \bottomrule
+    \end{tabular}
+    
+    {\footnotesize Fonte: Dados da Pesquisa, \the\year.}
+\end{table}

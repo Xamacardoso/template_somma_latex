@@ -1,0 +1,56 @@
+% estrutura/main.tex
+
+\documentclass{abntex-ifpi/somma} % Importa a classe customizada
+
+% --- Pacotes e Comandos ---
+\input{configuracoes/pacotes}
+\input{configuracoes/comandos}
+
+% --- Informações do Artigo ---
+\input{pre-textual/informacoes}
+
+\begin{document}
+
+% --- Elementos Pré-Textuais ---
+% Não usamos \maketitle do abntex2, pois o layout da Somma é customizado
+
+\begin{flushright}
+    \textcolor{VerdeSomma}{\textbf{[Incluir Seção]}}
+\end{flushright}
+
+\begin{center}
+    % Título em Português
+    \vspace*{1cm}
+    \imprimirtitulo
+    \vspace{0.8cm}
+    
+    % Autores
+    \imprimirautor
+\end{center}
+
+\vspace{0.5cm}
+
+% Resumo e Abstract
+\input{pre-textual/resumo_abstract}
+
+\vspace{1cm}
+
+% --- Elementos Textuais ---
+\textual
+
+% Capítulos
+\input{capitulos/1_introducao}
+\input{capitulos/2_metodologia}
+\input{capitulos/3_resultados_discussao}
+\input{capitulos/4_consideracoes_finais}
+
+% --- Elementos Pós-Textuais ---
+\postextual
+
+% Referências
+\printbibliography[title={REFERÊNCIAS}]
+
+% Apêndices e Anexos (Opcionais)
+% \input{pos-textual/apendices_anexos}
+
+\end{document}

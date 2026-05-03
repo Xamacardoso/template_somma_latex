@@ -1,0 +1,37 @@
+% configuracoes/comandos.tex
+
+% --- Comandos Customizados ---
+
+% Comando elegante para inserção de autores
+% Uso: \inserirautor{Nome Completo}{Afiliação, Campus, Cidade, Estado, Brasil.}{URL do ORCID}
+\newcommand{\inserirautor}[3]{%
+    \textbf{#1}\\% Nome do autor em negrito
+    {\small #2}\\% Afiliação
+    \IfNoValueF{#3}{{\small\url{#3}}}\vspace{0.5cm}% ORCID
+}
+
+% Para usar IfNoValueF, precisamos do pacote xparse, então vamos garantir que ele exista
+\RequirePackage{xparse}
+
+% Comandos para formatação específica exigida pela Somma
+\newcommand{\nomesautores}[1]{{\fontsize{11}{13}\selectfont\textbf{#1}}\\[0.2cm]}
+\newcommand{\afiliacao}[1]{{\fontsize{10}{12}\selectfont #1}\\}
+
+% Comando para formatar a "Apresentação" ou "Introdução" inicial
+\newcommand{\titulosecao}[1]{
+    \section*{#1}
+    \addcontentsline{toc}{section}{#1}
+}
+
+% Quadros Obrigatórios ao Final (Agradecimentos, Contribuição, etc)
+\newcommand{\quadroobrigatorio}[4]{
+    \vspace{1cm}
+    \noindent\fbox{
+        \parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule}{
+            \textbf{AGRADECIMENTOS.} #1\\[0.3cm]
+            \textbf{CONTRIBUIÇÃO DOS AUTORES.} #2\\[0.3cm]
+            \textbf{CONFLITO DE INTERESSE.} #3\\[0.3cm]
+            \textbf{APROVAÇÃO ÉTICA.} #4
+        }
+    }
+}
