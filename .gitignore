@@ -27,8 +27,6 @@
 *.alg
 *.pyg
 
-# VS Code
-.vscode/
 
 # Word/PDF placeholders from the root (if you don't want them in git)
 Template\ Somma*.docx
