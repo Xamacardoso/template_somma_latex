@@ -4,21 +4,31 @@
 % Usa fontspec para definir as fontes exigidas (Arial Narrow e Arial)
 \usepackage{fontspec}
 
-% Tenta carregar a Arial Narrow. Caso não encontre no sistema, usa Arial.
-\IfFontExistsTF{Arial Narrow}{
-    \setmainfont{Arial Narrow}[
-        BoldFont={Arial Narrow Bold},
-        ItalicFont={Arial Narrow Italic},
-        BoldItalicFont={Arial Narrow Bold Italic}
-    ]
+% Arial Narrow (Usada intensamente nos títulos em PT, EN e metadados)
+\setmainfont{ArialNarrow-regular.ttf}[
+    Path = fonts/,
+    BoldFont = ArialNarrow-bold.ttf,
+    ItalicFont = ArialNarrow-italic.ttf,
+    BoldItalicFont = ArialNarrow-boldItalic.ttf
+]
+
+% Bodoni MT (Usada apenas em alguns cabeçalhos)
+\newfontfamily\bodonifont{Bodoni-regular.ttf}[
+    Path = fonts/,
+    BoldFont = Bodoni-bold.ttf,
+    ItalicFont = Bodoni-italic.ttf,
+    BoldItalicFont = Bodoni-boldItalic.ttf
+]
+
+% Arial Normal (usada no cabeçalho)
+\IfFontExistsTF{Arial}{
+    \newfontfamily\arialfont{Arial}
 }{
-    \setmainfont{Arial}
+    \def\arialfont{\sffamily}
 }
 
-% Define comandos específicos para fontes do cabeçalho
-\newfontfamily\arialfont{Arial}
-\newfontfamily\bodonifont{Bodoni MT}
-\newfontfamily\calibrifont{Calibri}
+% Calibri (usada na barra do título)
+\IfFontExistsTF{Calibri}{\newfontfamily\calibrifont{Calibri}}{\def\calibrifont{\sffamily}}
 
 % --- Suporte a Idioma ---
 % Babel já é carregado pela classe abntex2
