@@ -4,11 +4,11 @@ on:
   push:
     branches: 
       - main
-      - feature/template-standardization # Adicionado para testar agora
+      - feature/template-standardization
   pull_request:
     branches: 
       - main
-  workflow_dispatch: # Permite rodar manualmente pela aba "Actions"
+  workflow_dispatch:
 
 jobs:
   build_latex:
@@ -21,14 +21,24 @@ jobs:
         uses: xu-cheng/latex-action@v3
         with:
           root_file: main.tex
-          # Usamos latexmk para que ele gerencie o Biber e as múltiplas passagens
-          compiler: latexmk 
-          # A flag -xelatex dentro dos args instrui o latexmk a usar o motor correto
-          args: -xelatex -pdf -interaction=nonstopmode -file-line-error
+          compiler: latexmk
+          # Ativa o motor XeLaTeX de forma nativa para suportar fontspec e fontes .ttf
+          latexmk_use_xelatex: true 
+          # Removemos o -pdf e -xelatex daqui para evitar conflitos com a flag acima
+          args: -interaction=nonstopmode -file-line-error
 
       - name: Fazer upload do PDF gerado
         uses: actions/upload-artifact@v4
+        if: success()
         with:
           name: Template_Somma_PDF
           path: main.pdf
           retention-days: 7
+
+      - name: Fazer upload do Log em caso de falha
+        uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: LaTeX-Error-Log
+          path: main.log
+          retention-days: 3
