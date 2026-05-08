@@ -1,40 +1,54 @@
 % !TEX root = ../main.tex
 % capitulos/3_resultados_discussao.tex
 
-\section{RESULTADOS E DISCUSSÃO}
-
 \subsection{Apresentação de figuras, tabelas e equações}
 
-Figuras e Tabelas devem ser inseridas diretamente no corpo do texto, utilizando preferencialmente o mesmo padrão. Quando citadas no texto, escrever com a 1ª letra maiúscula e não abreviar.
+\textbf{Figuras} e \textbf{Tabelas} devem ser inseridas diretamente no corpo do texto, utilizando preferencialmente o mesmo padrão (tamanho de letra, borda, etc.). Quando citadas no texto, escrever com a 1ª letra maiúscula e não abreviar.
 
-Exemplo: ``Na Figura \ref{fig:exemplo} é possível observar a evolução...''; ``... De acordo com a Tabela \ref{tab:exemplo} ...''
+``Na Figura 1 é possível observar a evolução da população...''; ``... De acordo com a Tabela 2 ...''
 
-As Equações quando citadas no texto virão com a 1ª letra maiúscula e o número entre parênteses, sem abreviação. Exemplo: ``Obtendo-se assim a Equação (\ref{eq:1}):''
+As \textbf{Equações} quando citadas no texto virão com a 1ª letra maiúscula e o número entre parênteses, sem abreviação.
 
-\begin{equation}
-    AB + CD \rightarrow AC + BD
-    \label{eq:1}
-\end{equation}
+``Obtendo-se assim a Equação (1):''
 
-\vspace{0.5cm}
+As \textbf{figuras} deverão ser numeradas em algarismos arábicos, por ordem de aparição no texto e devem estar centralizadas. Para mais de uma \textbf{figura} em um mesmo contexto, utilizar \textbf{figuras} compostas no qual devem ser identificadas com a numeração sequencial e uma letra identificadora maiúscula (Figura 1A, Figura 1A-B). As \textbf{figuras} devem apresentar boa qualidade (resolução mínima de \textbf{300 dpi}) nos formatos TIFF ou JPEG. Sempre que necessários os autores devem providenciar adicionalmente os arquivos originais para editoração.
+
+As legendas \textbf{devem ser concisas e autoexplicativas}, colocadas \textbf{abaixo} da \textbf{Figura}, com apenas a 1ª letra maiúscula na palavra ``\textbf{Figura}'' e no ``título'', sendo separado por dois pontos. A fonte usada para na legenda é a padrão usado em todo o texto (\textbf{Arial Narrow}), tamanho 11 e todo o texto da legenda deverá estar em Arial, 11.
+
+\textbf{Figura 2}: para o caso de uma 2ª figura exposta no artigo.
+
+Figura 2: Mapa viário do estado do Piauí, nordeste do Brasil, destacando as principais rodovias federais e estaduais.
 
 \begin{figure}[htb]
     \centering
-    \caption{Mapa viário de exemplo.}
-    % Usando a imagem extraída, se houver
-    % \includegraphics[width=0.6\textwidth]{imagens/image2.jpg}
-    \fbox{\rule{0pt}{2in} \rule{0.6\textwidth}{0pt}} % Placeholder
-    \label{fig:exemplo}
-    
-    {\footnotesize Fonte: Elaborado pelos autores, 2026.}
+    \fbox{\rule{0pt}{2in} \rule{0.6\textwidth}{0pt}}
 \end{figure}
 
-As Tabelas deverão ser enumeradas em algarismos arábicos, por ordem de aparição no texto e devem estar centralizadas.
+Fonte: \textbf{Elaborado pelos autores, 2026.}
+
+Quando houver mais de um gráfico para uma mesma figura, o título pode aparecer uma única vez, logo abaixo do conjunto de gráficos dispostos horizontal ou verticalmente.
+
+\textbf{Figura 5}: para o caso de uma 5ª figura exposta no artigo.
+
+Figura 5: Evolução de ganhos (em azul) e custos (em roxo) da produção da cajuína no estado do Piauí nos últimos 24 meses. A – histograma e gráfico de dispersão; B – apenas histograma.
+
+\begin{figure}[htb]
+    \centering
+    \fbox{\rule{0pt}{2in} \rule{0.6\textwidth}{0pt}}
+\end{figure}
+
+Fonte: Dados da Pesquisa, 2024.
+
+As \textbf{tabelas} deverão ser enumeradas em algarismos arábicos, por ordem de aparição no texto e devem estar centralizadas. O tamanho da fonte do texto interno da tabela é 11, sem espaçamento entre as linhas, o texto da primeira linha deverá vir em negrito, as bordas deverão seguir o padrão estabelecido no exemplo abaixo.
+
+O título deverá vir \textbf{acima} com apenas a 1ª letra maiúscula na palavra ``Tabela'' e no ``título'', sendo separado por dois pontos. As unidades referentes à coluna, quando couber, serão apresentadas nos ``cabeçalhos'' da coluna correspondente. A fonte usada para no título da tabela é a padrão usado em todo o texto (\textbf{Arial Narrow}), o tamanho é 10 e apenas o título inicial deverá estar em negrito.
+
+\textbf{Tabela 2}: para o caso de uma 2ª tabela exposta artigo
+
+\textbf{Tabela 2}: Estudo da influência do tempo na degradação da glicose.
 
 \begin{table}[htb]
     \centering
-    \caption{Estudo da influência do tempo.}
-    \label{tab:exemplo}
     \begin{tabular}{ccc}
         \toprule
         \textbf{Amostra} & \textbf{Concentração (moles/L)} & \textbf{Rendimento (\%)} \\
@@ -46,5 +60,21 @@ As Tabelas deverão ser enumeradas em algarismos arábicos, por ordem de apariç
         \bottomrule
     \end{tabular}
     
-    {\footnotesize Fonte: Dados da Pesquisa, \the\year.}
+    {\footnotesize Fonte: Dados da Pesquisa, 2024.}
 \end{table}
+
+As \textbf{equações} deverão estar enumeradas por ordem de aparição, com o respectivo número entre parênteses e no extremo da margem direita. Quando ocorrerem equações seguidas no texto, inserir uma linha como espaço entre as equações.
+
+\begin{equation}
+    E = mc^2
+\end{equation}
+
+\begin{equation}
+    a^2 + b^2 = c^2
+\end{equation}
+
+\textbf{O sistema de unidades} deverá ser homogêneo em todo o texto. Recomenda-se o sistema internacional (SI).
+
+Quanto ao \textbf{uso de palavras em língua estrangeira}, recomenda-se evitar o estrangeirismo. Quando o uso for necessário, utilizar a forma em itálico.
+
+``O polímero produzido na etapa de finalização é estruturado na forma de \textit{pellets} ou \textit{flakes}''.

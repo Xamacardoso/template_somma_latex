@@ -7,7 +7,7 @@
 \ProcessOptions\relax
 
 % A base é a classe abntex2, configurada como artigo (article)
-\LoadClass[article,12pt,oneside,a4paper,english,brazil]{abntex2}
+\LoadClass[article,12pt,oneside,a4paper,english,brazilian]{abntex2}
 
 % --- Pacotes Base Necessários ---
 \RequirePackage{geometry}
@@ -26,12 +26,14 @@
 % --- Configurações de Parágrafo ---
 % Recuo de 1,25 cm na primeira linha e espaçamento de 6pt depois do parágrafo
 \setlength{\parindent}{1.25cm}
-\setlength{\parskip}{6pt}
+\setlength{\parskip}{12pt}
 \SingleSpacing % Espaçamento simples entre linhas
 
 % --- Cores ---
 % Cor principal dos títulos da Revista Somma IFPI
-\definecolor{VerdeSomma}{HTML}{538135}
+\definecolor{VerdeSomma}{HTML}{538134}
+\definecolor{VerdeEscuroSomma}{HTML}{375623}
+\definecolor{VerdeCabecalho}{HTML}{41904e}
 \definecolor{CinzaSomma}{HTML}{808080}
 
 % --- Títulos de Seção ---
@@ -56,6 +58,11 @@
   {1em}
   {}
 
+% Ajusta os espaçamentos das seções (6pt antes, 6pt depois, ignorando parskip extra)
+\titlespacing*{\section}{0pt}{6pt}{6pt}
+\titlespacing*{\subsection}{0pt}{6pt}{6pt}
+\titlespacing*{\subsubsection}{0pt}{6pt}{6pt}
+
 % --- Cabeçalho e Rodapé ---
 \pagestyle{fancy}
 \fancyhf{} % Limpa tudo
@@ -74,7 +81,6 @@
     \fancyhf{}
     \fancyhead[C]{
         \begin{minipage}{\textwidth}
-            \vspace{-1.8cm} % Sobe o cabeçalho mais ainda
             \centering
             \textcolor{VerdeSomma}{\arialfont\fontsize{11}{13}\selectfont\textbf{Somma}} 
             {\calibrifont\fontsize{11}{13}\selectfont |} 
@@ -84,7 +90,7 @@
     \fancyfoot[C]{
         \begin{minipage}{\textwidth}
             \centering
-            \textcolor{CinzaSomma}{\fontsize{10}{12}\selectfont Somma | Teresina, PI | Volume 10 | eXX1024 | Ano 2024 | DOI:10.51361/somma.v10i1.XX}
+            \textcolor{CinzaSomma}{\fontsize{9}{11}\selectfont Somma | Teresina, PI | Volume 10 | eXX1024 | Ano 2024 | DOI:10.51361/somma.v10i1.XX}
         \end{minipage}
     }
 }
@@ -104,24 +110,29 @@
             \begin{minipage}{0.85\textwidth}
                 \vspace{-0.5cm}
                 \centering
-                \textcolor{VerdeSomma}{\fontsize{14}{16}\selectfont\textbf{Somma - Revista Científica do Instituto Federal de}}\\
-                \textcolor{VerdeSomma}{\fontsize{14}{16}\selectfont\textbf{Educação, Ciência e Tecnologia do Piauí}}
+                \textcolor{VerdeCabecalho}{\fontsize{14}{16}\selectfont\textbf{Somma - Revista Científica do Instituto Federal de}}\\
+                \textcolor{VerdeCabecalho}{\fontsize{14}{16}\selectfont\textbf{Educação, Ciência e Tecnologia do Piauí}}\\[0.2cm]
+                \textcolor{VerdeSomma}{\rule{\textwidth}{1pt}}
+                \begin{flushright}
+                    \vspace{-0.1cm}
+                    \fontsize{9}{11}\selectfont \textcolor{gray}{ISSN: 2447-701X}\\
+                    \fontsize{9}{11}\selectfont \textcolor{gray}{eXX1024}
+                \end{flushright}
             \end{minipage}
-            % hrule removida conforme pedido
-            \vspace{0.15cm}
-            \begin{flushright}
-                \fontsize{9}{11}\selectfont \textcolor{gray}{ISSN: 2447-701X}\\
-                \fontsize{9}{11}\selectfont \textcolor{gray}{eXX1024}\\
-                \vspace{0.05cm}
-                \textcolor{VerdeSomma}{\fontsize{10}{12}\selectfont\textbf{[Incluir Seção]}}
-            \end{flushright}
         \end{minipage}
     }
     % Rodapé da Primeira Página
     \fancyfoot[C]{
-        \begin{minipage}{\textwidth}
+        \begin{minipage}[b]{\textwidth}
             \centering
-            \textcolor{CinzaSomma}{\fontsize{10}{12}\selectfont Somma | Teresina, PI | Volume 10 | eXX1024 | Ano 2024 | DOI:10.51361/somma.v10i1.XX}
+            \textcolor{VerdeEscuroSomma}{\fontsize{10}{12}\selectfont\textbf{Artigo submetido a sistemas de verificação de similaridade}}\\[0.2cm]
+            \rule{\textwidth}{0.5pt}\\[0.2cm]
+            \begin{minipage}{0.14\textwidth}
+                \includegraphics[height=0.6cm]{imagens/cc-by.png}
+            \end{minipage}%
+            \begin{minipage}{0.86\textwidth}
+                \textcolor{CinzaSomma}{\fontsize{9}{11}\selectfont Somma | Teresina, PI | Volume 10 | eXX1024 | Ano 2024 | DOI:10.51361/somma.v10i1.XX}
+            \end{minipage}
         \end{minipage}
     }
 }
@@ -130,9 +141,9 @@
 \renewcommand{\footrulewidth}{0pt}
 
 % Ajusta a altura do cabeçalho
-\setlength{\headheight}{110pt}
-\setlength{\headsep}{10pt} % Reduz o espaço entre cabeçalho e corpo do texto
-\setlength{\footskip}{30pt}
+\setlength{\headheight}{75pt}
+\setlength{\headsep}{5pt} % Reduz o espaço entre cabeçalho e corpo do texto
+\setlength{\footskip}{52pt}
 
 % --- Legendas de Figuras e Tabelas ---
 \captionsetup{font=small, labelfont=bf, labelsep=colon}
