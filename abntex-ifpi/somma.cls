@@ -7,7 +7,7 @@
 \ProcessOptions\relax
 
 % A base é a classe abntex2, configurada como artigo (article)
-\LoadClass[article,12pt,oneside,a4paper,english,brazil]{abntex2}
+\LoadClass[article,12pt,oneside,a4paper,english,brazilian]{abntex2}
 
 % --- Pacotes Base Necessários ---
 \RequirePackage{geometry}
@@ -141,9 +141,9 @@
 \renewcommand{\footrulewidth}{0pt}
 
 % Ajusta a altura do cabeçalho
-\setlength{\headheight}{35pt}
+\setlength{\headheight}{75pt}
 \setlength{\headsep}{5pt} % Reduz o espaço entre cabeçalho e corpo do texto
-\setlength{\footskip}{25pt}
+\setlength{\footskip}{52pt}
 
 % --- Legendas de Figuras e Tabelas ---
 \captionsetup{font=small, labelfont=bf, labelsep=colon}

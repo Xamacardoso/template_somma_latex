@@ -24,11 +24,20 @@
 \IfFontExistsTF{Arial}{
     \newfontfamily\arialfont{Arial}
 }{
-    \def\arialfont{\sffamily}
+    \newfontfamily\arialfont{ArialNarrow-regular.ttf}[
+        Path = fonts/,
+        BoldFont = ArialNarrow-bold.ttf,
+        ItalicFont = ArialNarrow-italic.ttf,
+        BoldItalicFont = ArialNarrow-boldItalic.ttf
+    ]
 }
 
 % Calibri (usada na barra do título)
-\IfFontExistsTF{Calibri}{\newfontfamily\calibrifont{Calibri}}{\def\calibrifont{\sffamily}}
+\IfFontExistsTF{Calibri}{
+    \newfontfamily\calibrifont{Calibri}
+}{
+    \def\calibrifont{\sffamily}
+}
 
 % --- Suporte a Idioma ---
 % Babel já é carregado pela classe abntex2
