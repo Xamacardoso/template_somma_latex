@@ -10,7 +10,6 @@
 \LoadClass[article,12pt,oneside,a4paper,english,brazilian]{abntex2}
 
 % --- Pacotes Base Necessários ---
-\RequirePackage{geometry}
 \RequirePackage{xcolor}
 \RequirePackage{fancyhdr}
 \RequirePackage{graphicx}
@@ -18,10 +17,19 @@
 \RequirePackage{setspace}
 \RequirePackage{caption}
 \RequirePackage{indentfirst}
+\RequirePackage{geometry}
 
 % --- Margens ---
-% Configura margens conforme padrão (superior 3cm, inferior 3cm, esquerda 3cm, direita 2cm)
-\geometry{a4paper, top=3cm, bottom=3cm, left=3cm, right=2cm}
+\geometry{
+    a4paper,
+    top=3.5cm,
+    bottom=3cm,
+    left=3cm,
+    right=2cm,
+    headheight=60pt,
+    headsep=15pt,
+    footskip=31pt    % Ajustado para descer levemente o rodapé com segurança
+}
 
 % --- Configurações de Parágrafo ---
 % Recuo de 1,25 cm na primeira linha e espaçamento de 6pt depois do parágrafo
@@ -35,6 +43,21 @@
 \definecolor{VerdeEscuroSomma}{HTML}{375623}
 \definecolor{VerdeCabecalho}{HTML}{41904e}
 \definecolor{CinzaSomma}{HTML}{808080}
+
+% --- Metadados da Revista (Parametrizáveis) ---
+\newcommand{\sommavolume}[1]{\def\@sommavolume{#1}}
+\newcommand{\sommaano}[1]{\def\@sommaano{#1}}
+\newcommand{\sommaelocation}[1]{\def\@sommaelocation{#1}}
+\newcommand{\sommadoi}[1]{\def\@sommadoi{#1}}
+\newcommand{\sommaissn}[1]{\def\@sommaissn{#1}}
+\newcommand{\sommapagina}[1]{\setcounter{page}{#1}}
+
+% Valores padrão
+\sommavolume{10}
+\sommaano{2024}
+\sommaelocation{eXX1024}
+\sommadoi{10.51361/somma.v10i1.XX}
+\sommaissn{2447-701X}
 
 % --- Títulos de Seção ---
 % Arial Narrow, negrito, 12 pts, cor verde, maiúsculas
@@ -66,13 +89,19 @@
 % --- Cabeçalho e Rodapé ---
 \pagestyle{fancy}
 \fancyhf{} % Limpa tudo
-\aliaspagestyle{headings}{fancy} % Faz com que o estilo padrão de páginas seja o fancy
+\aliaspagestyle{headings}{fancy}
 \aliaspagestyle{tabular}{fancy}
-\aliaspagestyle{abntheadings}{fancy} % Alias para o estilo usado pelo abntex2
+\aliaspagestyle{abntheadings}{fancy}
+\aliaspagestyle{chapter}{fancy}
+\aliaspagestyle{cleared}{fancy}
 
-% Redefine \textual para garantir que o estilo fancy persista
+% Redefine \textual para garantir que o estilo fancy persista e a numeração continue
 \let\oldtextual\textual
-\renewcommand{\textual}{\oldtextual\pagestyle{fancy}}
+\renewcommand{\textual}{%
+  \oldtextual%
+  \pagestyle{fancy}%
+  \aliaspagestyle{chapter}{fancy}%
+}
 
 % ==========================================
 % ESTILO PARA PÁGINAS NORMAIS (Pág 2 em diante)
@@ -90,9 +119,17 @@
     \fancyfoot[C]{
         \begin{minipage}{\textwidth}
             \centering
-            \textcolor{CinzaSomma}{\fontsize{9}{11}\selectfont Somma | Teresina, PI | Volume 10 | eXX1024 | Ano 2024 | DOI:10.51361/somma.v10i1.XX}
+            \rule{\textwidth}{0.5pt}\\[0.1cm]
+            \begin{minipage}{0.12\textwidth}
+                \includegraphics[height=0.5cm]{imagens/cc-by.png}
+            \end{minipage}%
+            \begin{minipage}{0.88\textwidth}
+                \textcolor{CinzaSomma}{\fontsize{8}{10}\selectfont Somma | Teresina, PI | Volume \@sommavolume{} | \@sommaelocation{} | Ano \@sommaano{} | DOI:\@sommadoi \ | Pág. \thepage}
+            \end{minipage}
         \end{minipage}
     }
+    \renewcommand{\headrulewidth}{0pt}
+    \renewcommand{\footrulewidth}{0pt}
 }
 
 % ==========================================
@@ -103,49 +140,45 @@
     % Cabeçalho da Primeira Página
     \fancyhead[C]{
         \begin{minipage}{\textwidth}
-            \begin{minipage}{0.15\textwidth}
-                \vspace{-0.5cm}
-                \includegraphics[height=1.5cm]{imagens/image5.jpg}
+            \begin{minipage}{0.12\textwidth}
+                \vspace{-0.8cm}
+                \includegraphics[height=1.4cm]{imagens/image5.jpg}
             \end{minipage}%
-            \begin{minipage}{0.85\textwidth}
-                \vspace{-0.5cm}
+            \begin{minipage}{0.88\textwidth}
+                \vspace{-0.8cm}
                 \centering
-                \textcolor{VerdeCabecalho}{\fontsize{14}{16}\selectfont\textbf{Somma - Revista Científica do Instituto Federal de}}\\
-                \textcolor{VerdeCabecalho}{\fontsize{14}{16}\selectfont\textbf{Educação, Ciência e Tecnologia do Piauí}}\\[0.2cm]
-                \textcolor{VerdeSomma}{\rule{\textwidth}{1pt}}
+                \textcolor{VerdeCabecalho}{\fontsize{13}{15}\selectfont\textbf{Somma - Revista Científica do Instituto Federal de}}\\
+                \textcolor{VerdeCabecalho}{\fontsize{13}{15}\selectfont\textbf{Educação, Ciência e Tecnologia do Piauí}}\\[0.1cm]
+                \textcolor{VerdeSomma}{\rule{\textwidth}{0.8pt}}
                 \begin{flushright}
                     \vspace{-0.1cm}
-                    \fontsize{9}{11}\selectfont \textcolor{gray}{ISSN: 2447-701X}\\
-                    \fontsize{9}{11}\selectfont \textcolor{gray}{eXX1024}
+                    \fontsize{9}{11}\selectfont \textcolor{gray}{ISSN: \@sommaissn \ | \@sommaelocation}
                 \end{flushright}
             \end{minipage}
         \end{minipage}
     }
     % Rodapé da Primeira Página
     \fancyfoot[C]{
-        \begin{minipage}[b]{\textwidth}
+        \begin{minipage}{\textwidth}
             \centering
-            \textcolor{VerdeEscuroSomma}{\fontsize{10}{12}\selectfont\textbf{Artigo submetido a sistemas de verificação de similaridade}}\\[0.2cm]
-            \rule{\textwidth}{0.5pt}\\[0.2cm]
-            \begin{minipage}{0.14\textwidth}
-                \includegraphics[height=0.6cm]{imagens/cc-by.png}
+            \textcolor{VerdeEscuroSomma}{\fontsize{10}{12}\selectfont\textbf{Artigo submetido a sistemas de verificação de similaridade}}\\[0.1cm]
+            \rule{\textwidth}{0.5pt}\\[0.1cm]
+            \begin{minipage}{0.12\textwidth}
+                \includegraphics[height=0.5cm]{imagens/cc-by.png}
             \end{minipage}%
-            \begin{minipage}{0.86\textwidth}
-                \textcolor{CinzaSomma}{\fontsize{9}{11}\selectfont Somma | Teresina, PI | Volume 10 | eXX1024 | Ano 2024 | DOI:10.51361/somma.v10i1.XX}
+            \begin{minipage}{0.88\textwidth}
+                \textcolor{CinzaSomma}{\fontsize{8}{10}\selectfont Somma | Teresina, PI | Volume \@sommavolume{} | \@sommaelocation{} | Ano \@sommaano{} | DOI:\@sommadoi \ | Pág. \thepage}
             \end{minipage}
         \end{minipage}
     }
+    \renewcommand{\headrulewidth}{0pt}
+    \renewcommand{\footrulewidth}{0pt}
 }
 
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0pt}
 
-% Ajusta a altura do cabeçalho
-\setlength{\headheight}{75pt}
-\setlength{\headsep}{5pt} % Reduz o espaço entre cabeçalho e corpo do texto
-\setlength{\footskip}{52pt}
-
-% --- Legendas de Figuras e Tabelas ---
+% Espaçamentos de legendas
 \captionsetup{font=small, labelfont=bf, labelsep=colon}
 
 \endinput
