@@ -26,7 +26,7 @@
     bottom=3cm,
     left=3cm,
     right=2cm,
-    headheight=60pt,
+    headheight=75pt,
     headsep=15pt,
     footskip=31pt    % Ajustado para descer levemente o rodapé com segurança
 }
@@ -137,27 +137,31 @@
 % ==========================================
 \fancypagestyle{somma_primeira}{
     \fancyhf{}
-    % Cabeçalho da Primeira Página
     \fancyhead[C]{
         \begin{minipage}{\textwidth}
             \begin{minipage}{0.12\textwidth}
-                \vspace{-0.8cm}
                 \includegraphics[height=1.4cm]{imagens/image5.jpg}
             \end{minipage}%
             \begin{minipage}{0.88\textwidth}
-                \vspace{-0.8cm}
                 \centering
-                \textcolor{VerdeCabecalho}{\fontsize{13}{15}\selectfont\textbf{Somma - Revista Científica do Instituto Federal de}}\\
-                \textcolor{VerdeCabecalho}{\fontsize{13}{15}\selectfont\textbf{Educação, Ciência e Tecnologia do Piauí}}\\[0.1cm]
-                \textcolor{VerdeSomma}{\rule{\textwidth}{0.8pt}}
-                \begin{flushright}
-                    \vspace{-0.1cm}
-                    \fontsize{9}{11}\selectfont \textcolor{gray}{ISSN: \@sommaissn \ | \@sommaelocation}
-                \end{flushright}
+                \textcolor{VerdeSomma}{\arialfont\fontsize{14}{16}\selectfont\textbf{Somma - Revista Científica do Instituto Federal de}} \\
+                \textcolor{VerdeSomma}{\arialfont\fontsize{14}{16}\selectfont\textbf{Educação, Ciência e Tecnologia do Piauí}}
+            \end{minipage}
+            \par\vspace{2pt}
+            \rule{\textwidth}{0.8pt}
+            \par\vspace{1pt}
+            \begin{minipage}{\textwidth}
+                \raggedleft
+                {\arialfont\fontsize{8}{10}\selectfont
+                    \textcolor{gray}{ISSN: \@sommaissn} \\
+                    \textcolor{gray}{\@sommaelocation} \\
+                    \vspace{2pt}
+                    \textcolor{VerdeEscuroSomma}{\fontsize{14}{16}\selectfont\textbf{[Incluir Seção]}}
+                }
             \end{minipage}
         \end{minipage}
     }
-    % Rodapé da Primeira Página
+    % Rodapé da primeira página (igual às outras)
     \fancyfoot[C]{
         \begin{minipage}{\textwidth}
             \centering
